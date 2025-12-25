@@ -1,6 +1,7 @@
 {
     "name": "paigejulianne/email-validator",
     "description": "A PHP library to validate email addresses, including syntax, MX record, and SMTP verification.",
+    "version": "0.1.0",
     "type": "library",
     "license": "MIT",
     "authors": [
