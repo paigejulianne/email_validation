@@ -1,6 +1,6 @@
 <?php
 
-namespace EmailValidation\Exceptions;
+namespace PaigeJulianne\EmailValidator\Exceptions;
 
 class EmailAddressUserDoesntExist extends \Exception
 {

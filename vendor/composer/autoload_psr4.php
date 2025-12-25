@@ -6,6 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'EmailValidation\\Exceptions\\' => array($baseDir . '/src/exceptions'),
-    'EmailValidation\\' => array($baseDir . '/src'),
+    'PaigeJulianne\\EmailValidator\\Exceptions\\' => array($baseDir . '/src/exceptions'),
+    'PaigeJulianne\\EmailValidator\\' => array($baseDir . '/src'),
 );

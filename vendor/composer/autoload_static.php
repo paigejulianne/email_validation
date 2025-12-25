@@ -7,19 +7,19 @@ namespace Composer\Autoload;
 class ComposerStaticInita6b9ae1bbcb9e1498fdaff8869ac0f9c
 {
     public static $prefixLengthsPsr4 = array (
-        'E' =>
+        'P' =>
         array (
-            'EmailValidation\\Exceptions\\' => 27,
-            'EmailValidation\\' => 16,
+            'PaigeJulianne\\EmailValidator\\Exceptions\\' => 40,
+            'PaigeJulianne\\EmailValidator\\' => 29,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'EmailValidation\\Exceptions\\' =>
+        'PaigeJulianne\\EmailValidator\\Exceptions\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src/exceptions',
         ),
-        'EmailValidation\\' =>
+        'PaigeJulianne\\EmailValidator\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

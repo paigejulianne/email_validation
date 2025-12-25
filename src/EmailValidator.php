@@ -1,10 +1,10 @@
 <?php
 
-namespace EmailValidation;
+namespace PaigeJulianne\EmailValidator;
 
-use EmailValidation\Exceptions\EmailAddressFormatInvalid;
-use EmailValidation\Exceptions\EmailAddressHasNoMXRecords;
-use EmailValidation\Exceptions\EmailAddressUserDoesntExist;
+use PaigeJulianne\EmailValidator\Exceptions\EmailAddressFormatInvalid;
+use PaigeJulianne\EmailValidator\Exceptions\EmailAddressHasNoMXRecords;
+use PaigeJulianne\EmailValidator\Exceptions\EmailAddressUserDoesntExist;
 
 class EmailValidator
 {

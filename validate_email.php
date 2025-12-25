@@ -2,10 +2,10 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use EmailValidation\EmailValidator;
-use EmailValidation\Exceptions\EmailAddressFormatInvalid;
-use EmailValidation\Exceptions\EmailAddressHasNoMXRecords;
-use EmailValidation\Exceptions\EmailAddressUserDoesntExist;
+use PaigeJulianne\EmailValidator\EmailValidator;
+use PaigeJulianne\EmailValidator\Exceptions\EmailAddressFormatInvalid;
+use PaigeJulianne\EmailValidator\Exceptions\EmailAddressHasNoMXRecords;
+use PaigeJulianne\EmailValidator\Exceptions\EmailAddressUserDoesntExist;
 
 if ($argc < 2) {
     echo "Usage: php validate_email.php <email>\n";
