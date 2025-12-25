@@ -13,47 +13,48 @@ A PHP Composer module for robust email address validation. This module performs 
 To install this module, navigate to your project's root directory and run the following Composer command:
 
 ```bash
-composer require email_validation/email_validation
+composer require paigejulianne/email-validator
 ```
 
 ## Usage
 
-Here's how to use the `EmailValidator` class in your PHP project:
+To use the `EmailValidator` class, you first need to include the Composer autoloader. Then, instantiate the `EmailValidator` and call its `validate` method within a `try-catch` block to handle potential validation exceptions.
 
 ```php
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use EmailValidation\EmailValidator;
+use PaigeJulianne\EmailValidator\EmailValidator;
+use PaigeJulianne\EmailValidator\Exceptions\EmailAddressFormatInvalid;
+use PaigeJulianne\EmailValidator\Exceptions\EmailAddressHasNoMXRecords;
+use PaigeJulianne\EmailValidator\Exceptions\EmailAddressUserDoesntExist;
 
 $validator = new EmailValidator();
 
-echo "--- Running Email Validator Examples ---\\n\\n";
+$emailsToValidate = [
+    'test@example.com', // Domain with no MX records (often used for examples)
+    'non-existent-email@gmail.com', // Syntactically correct but user doesn't exist
+    'valid-email@gmail.com', // Replace with a real, valid email for actual testing
+    'invalid-format', // Syntactically incorrect
+];
 
-// Example 1: A syntactically correct email with a domain that has no MX records.
-// Expected result: Invalid
-echo "1. Validating an email with a domain that has no MX records (e.g., example.com)...";
-$emailToValidate1 = 'test@example.com';
-echo "   - Email: $emailToValidate1";
-if ($validator->validate($emailToValidate1)) {
-    echo "   - Result: Email address is valid.\\n\\n";
-} else {
-    echo "   - Result: Email address is invalid, as expected, because example.com has no MX records.\\n\\n";
+foreach ($emailsToValidate as $email) {
+    echo "Validating: {$email}\n";
+    try {
+        if ($validator->validate($email)) {
+            echo "  Result: '{$email}' is a valid email address.\n\n";
+        }
+    } catch (EmailAddressFormatInvalid $e) {
+        echo "  Result: '{$email}' is invalid (Format Invalid): {$e->getMessage()}\n\n";
+    } catch (EmailAddressHasNoMXRecords $e) {
+        echo "  Result: '{$email}' is invalid (No MX Records): {$e->getMessage()}\n\n";
+    } catch (EmailAddressUserDoesntExist $e) {
+        echo "  Result: '{$email}' is invalid (User Does Not Exist): {$e->getMessage()}\n\n";
+    } catch (\Exception $e) {
+        echo "  Result: An unexpected error occurred for '{$email}': {$e->getMessage()}\n\n";
+    }
 }
-
-// Example 2: A syntactically correct email, but one that does not actually exist.
-// Expected result: Invalid
-echo "2. Validating a syntactically correct email that does not exist...";
-$emailToValidate2 = 'non-existent-email@gmail.com'; // Replace with a real non-existent email if testing
-echo "   - Email: $emailToValidate2";
-if ($validator->validate($emailToValidate2)) {
-    echo "   - Result: Email address is valid.\\n\\n";
-} else {
-    echo "   - Result: Email address is invalid, as expected, because the SMTP server rejected it (user does not exist).\\n\\n";
-}
-
-echo "--- Validation examples complete. ---";
 ```
 
 ## License
