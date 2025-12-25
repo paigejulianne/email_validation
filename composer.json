@@ -1,0 +1,19 @@
+{
+    "name": "email_validation/email_validation",
+    "description": "A PHP library to validate email addresses, including syntax, MX record, and SMTP verification.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Paige Sullivan",
+            "email": "paige@homerunaitechnologies.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "EmailValidation\\": "src/",
+            "EmailValidation\\Exceptions\\": "src/exceptions"
+        }
+    }
+}
